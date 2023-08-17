@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        .faq-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .faq {
+            border: 1px solid #009688;
+            border-radius: 4px;
+            margin-bottom: 15px;
+            background-color: white;
+            cursor: pointer;
+        }
+
+        .faq h5 {
+            margin: 0;
+            padding: 30px;
+            border: 1px solid #009688;
+            font-size: 18px;
+            border-radius: 4px 4px 0 0;
+            background-color: #f2f2f2;
+
+        }
+
+        .faq-content {
+            display: none;
+            padding: 10px;
+            border: 1px solid #009688;
+            border-top: none;
+            border-radius: 0 0 4px 4px;
+        }
+
+        .faq.active .faq-content {
+            display: block;
+        }
+
+        .faq h5:hover {
+            background-color: #00796b;
+        }
+
+        .back-button {
+            background-color: #009688;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .back-button:hover {
+            background-color: #00796b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="faq-container">
+        <div class="faq" onclick="toggleFAQ(this)">
+            <h5>Write a function to sum a range of numbers?</h5>
+            <div class="faq-content">
+                <p>Write a function called all which accepts an array and a callback and returns true if every value in
+                    the array returns true when passed as a parameter to the callback function.</p>
+                <pre>
+                    function all(array, callback) {
+                        for (let index = 0; index &lt; array.length; index++) {
+                            if (!callback(array[index])) {
+                                return false; 
+                            }
+                        }
+                        return true;  
+                    }
+                </pre>
+            </div>
+        </div>
+        <div class="faq" onclick="toggleFAQ(this)">
+            <h5>Write a function called contains that searches for a value in a nested object. It returns true if the
+                object contains that value.</h5>
+            <div class="faq-content">
+                <p>Here is an example function to search for a value in a nested object:</p>
+                <pre>
+                    function contains(obj, value) {
+                        for (const key in obj) {
+                            if (obj[key] === value) {
+                                return true; 
+                            }
+                            //  return contains(obj[key], value);
+                            
+                            if (typeof obj[key] === 'object') {
+                                return contains(obj[key], value);
+                            }
+                        }
+                        
+                        return false; 
+                    }
+               </pre>
+            </div>
+        </div>
+        <button class="back-button" onclick="goBack()">Back to Assignment#1</button>
+
+    </div>
+
+    <script>
+        function toggleFAQ(faq) {
+            faq.classList.toggle('active');
+        }
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+
+</html>
